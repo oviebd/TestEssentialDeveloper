@@ -20,16 +20,14 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBu-Sg-zHO">
-                    <rect key="frame" x="104" y="129" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBu-Sg-zHO">
+                    <rect key="frame" x="0.0" y="59" width="393" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2uy-Nc-TAa">
-                    <rect key="frame" x="76" y="302" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2uy-Nc-TAa">
+                    <rect key="frame" x="0.0" y="80" width="393" height="738"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="t2M-YM-pRr"/>
@@ -39,6 +37,16 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="PBu-Sg-zHO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="0am-Hf-kRp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="PBu-Sg-zHO" secondAttribute="trailing" id="1EL-H1-qta"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2uy-Nc-TAa" secondAttribute="trailing" id="1mq-6Z-rRR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="2uy-Nc-TAa" secondAttribute="bottom" id="2MA-Bq-SeK"/>
+                <constraint firstItem="PBu-Sg-zHO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Dyy-Sd-7dG"/>
+                <constraint firstItem="2uy-Nc-TAa" firstAttribute="top" secondItem="PBu-Sg-zHO" secondAttribute="bottom" id="XHs-Te-v2V"/>
+                <constraint firstItem="2uy-Nc-TAa" firstAttribute="top" secondItem="PBu-Sg-zHO" secondAttribute="bottom" id="bVx-xL-Klf"/>
+                <constraint firstItem="2uy-Nc-TAa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kBf-Rt-zDy"/>
+            </constraints>
             <point key="canvasLocation" x="132" y="-11"/>
         </view>
     </objects>

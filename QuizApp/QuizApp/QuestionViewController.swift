@@ -15,10 +15,10 @@ class QuestionViewController : UIViewController, UITableViewDataSource, UITableV
     
     private var question  = ""
     private var options = [String]()
-    private var selection: ((String) -> Void)? = nil
+    private var selection: (([String]) -> Void)? = nil
     private let reuseableIdentifier = "cell"
     
-    convenience init(question: String, options : [String], selection :  @escaping ((String) -> Void)) {
+    convenience init(question: String, options : [String], selection :  @escaping (([String]) -> Void)) {
         self.init()
         self.question = question
         self.options = options
@@ -32,7 +32,20 @@ class QuestionViewController : UIViewController, UITableViewDataSource, UITableV
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selection?(options[indexPath.row])
+        selection?(selectOptions(in: tableView))
+        //selection?(tableView.indexPathsForSelectedRows!.map{options[$0.row]})
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if tableView.allowsMultipleSelection {
+            selection?(selectOptions(in: tableView))
+        }
+        
+    }
+    
+    private func selectOptions(in tableView : UITableView) -> [String]{
+        guard let indexPath = tableView.indexPathsForSelectedRows else {return []}
+        return indexPath.map {options[$0.row]}
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
