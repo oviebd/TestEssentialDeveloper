@@ -19,6 +19,7 @@
 		7B77D56E2C718A5E00FEAEF6 /* QuestionViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77D56D2C718A5E00FEAEF6 /* QuestionViewControllerTest.swift */; };
 		7BF34DE92C8541E7000559FF /* ResultsViewContrllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF34DE82C8541E7000559FF /* ResultsViewContrllerTest.swift */; };
 		7BF34DEB2C854952000559FF /* TableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF34DEA2C854952000559FF /* TableViewHelpers.swift */; };
+		7BF34DED2C854BE4000559FF /* CorrectAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BF34DEC2C854BE4000559FF /* CorrectAnswerCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7B77D56D2C718A5E00FEAEF6 /* QuestionViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewControllerTest.swift; sourceTree = "<group>"; };
 		7BF34DE82C8541E7000559FF /* ResultsViewContrllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewContrllerTest.swift; sourceTree = "<group>"; };
 		7BF34DEA2C854952000559FF /* TableViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelpers.swift; sourceTree = "<group>"; };
+		7BF34DEC2C854BE4000559FF /* CorrectAnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CorrectAnswerCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				7B77D5692C71849E00FEAEF6 /* QuestionViewController.xib */,
 				7B48528A2C85396500B87397 /* ResultsViewController.swift */,
 				7B48528C2C853A0F00B87397 /* ResultsViewController.xib */,
+				7BF34DEC2C854BE4000559FF /* CorrectAnswerCell.xib */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BF34DED2C854BE4000559FF /* CorrectAnswerCell.xib in Resources */,
 				7B48528D2C853A0F00B87397 /* ResultsViewController.xib in Resources */,
 				7B77D5412C7182E600FEAEF6 /* Assets.xcassets in Resources */,
 				7B77D56A2C71849E00FEAEF6 /* QuestionViewController.xib in Resources */,
