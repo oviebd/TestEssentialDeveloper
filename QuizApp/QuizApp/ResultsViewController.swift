@@ -8,23 +8,7 @@
 import Foundation
 import UIKit
 
-struct PresentableAnswer {
-    var question : String
-    let answer : String
-    var isCorrect : Bool
-}
-
-class CorrectAnswerCell : UITableViewCell {
-    @IBOutlet weak var questionLabel: UILabel!
-    
-    @IBOutlet weak var answerLabel: UILabel!
-}
-
-class WrongAnswerCell : UITableViewCell {
-    
-}
-
-class ResultsViewController : UIViewController, UITableViewDataSource {
+class ResultsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     @IBOutlet weak var headerLabel: UILabel!
@@ -43,23 +27,55 @@ class ResultsViewController : UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         headerLabel.text = summary
         
-        tableView.register(UINib(nibName: "CorrectAnswerCell", bundle: nil), forCellReuseIdentifier: "CorrectAnswerCell")
+        tableView.register(CorrectAnswerCell.self)
+        tableView.register(WrongAnswerCell.self)
+        
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let answer = answers[indexPath.row]
-        if answer.isCorrect {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CorrectAnswerCell") as! CorrectAnswerCell
-            cell.questionLabel.text = answer.question
-            cell.answerLabel.text = answer.answer
-            return cell
+        if answer.wrongAnswer == nil {
+            return createCorrectAnswerCell(for: answer)
+        }else{
+           return createWrongAnswerCell(for: answer)
         }
-        return WrongAnswerCell()
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answers.count
     }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        let answer = answers[indexPath.row]
+//        if answer.wrongAnswer == nil {
+//            return 70
+//        }else{
+//           return 90
+//        }
+//    }
+    
+    private func createCorrectAnswerCell (for answer : PresentableAnswer) -> UITableViewCell{
+        let cell = tableView.dequeueReuseableCell(CorrectAnswerCell.self)!
+        cell.questionLabel.text = answer.question
+        cell.answerLabel.text = answer.answer
+        return cell
+    }
+    
+    private func createWrongAnswerCell (for answer : PresentableAnswer) -> UITableViewCell{
+        let cell = tableView.dequeueReuseableCell(WrongAnswerCell.self)!
+        
+        cell.questionLbl.text = answer.question
+        cell.correctAnswerLbl.text = answer.answer
+        cell.wrongAnswerLbl.text = answer.wrongAnswer
+        return cell
+    }
+    
+    
 }
+
+
+ 

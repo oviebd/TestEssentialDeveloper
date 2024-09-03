@@ -20,24 +20,32 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTB-0g-IVl">
-                    <rect key="frame" x="133" y="159" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTB-0g-IVl">
+                    <rect key="frame" x="20" y="69" width="353" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="46K-Iz-evo">
-                    <rect key="frame" x="86" y="311" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="46K-Iz-evo">
+                    <rect key="frame" x="20" y="100" width="353" height="708"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="oNW-Dw-cKC"/>
+                        <outlet property="delegate" destination="-1" id="4FJ-h2-EiK"/>
                     </connections>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vTB-0g-IVl" secondAttribute="trailing" constant="20" id="AcI-0f-WKO"/>
+                <constraint firstItem="46K-Iz-evo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="EJ7-8Q-m1H"/>
+                <constraint firstItem="46K-Iz-evo" firstAttribute="top" secondItem="vTB-0g-IVl" secondAttribute="bottom" constant="10" id="EWg-7C-T28"/>
+                <constraint firstItem="vTB-0g-IVl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Hwz-ZV-uu1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="46K-Iz-evo" secondAttribute="bottom" constant="10" id="Noc-xn-Mgs"/>
+                <constraint firstItem="vTB-0g-IVl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="W2D-7o-jw2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="46K-Iz-evo" secondAttribute="trailing" constant="20" id="gSN-qb-0pL"/>
+            </constraints>
             <point key="canvasLocation" x="13" y="-11"/>
         </view>
     </objects>

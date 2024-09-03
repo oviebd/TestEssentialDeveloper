@@ -17,9 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            print($0)
 //        })
 
-        let vc = QuestionViewController(question: "A question", options: ["A", "B"], selection: {
-            print($0)
-        })
+        let answers = [
+        PresentableAnswer(question: "Question QuestionQuestionQuestionQuestionQuestionQuestion Question", answer: "Answer AnswerAnswerAnswerAnswerAnswerAnswerAnswerAnswer AnswerAnswer end", wrongAnswer: nil),
+        PresentableAnswer(question: "Q2", answer: "A2", wrongAnswer: "Wrong")
+        ]
+        let vc = ResultsViewController(summary: "you got 1/2 cirrect", answers: answers)
+//        let vc = QuestionViewController(question: "A question", options: ["A", "B"], selection: {
+//            print($0)
+//        })
         _ = vc.view
         vc.tableView.allowsMultipleSelection = true
         window.rootViewController = vc
