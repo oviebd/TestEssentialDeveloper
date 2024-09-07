@@ -64,7 +64,7 @@ class FlowTests : XCTestCase {
     
     func test_start_withNoQuestions_routesToResult(){
         makeSut(questions: []).start()
-        XCTAssertEqual(router.routedResults, [:])
+        XCTAssertEqual(router.routedResults?.answers, [:])
     }
 
     func test_start_withOneQuestions_doesnotRoutesToResult(){
@@ -77,7 +77,7 @@ class FlowTests : XCTestCase {
         sut.start()
         router.answerCallback("A1")
         
-        XCTAssertEqual(router.routedResults, ["01":"A1"])
+        XCTAssertEqual(router.routedResults?.answers, ["01":"A1"])
     }
 
     func test_startAndAnswerFirstQuestion_withTwoQuestions_doesnotRoutesToResult(){
@@ -85,7 +85,7 @@ class FlowTests : XCTestCase {
         sut.start()
         router.answerCallback("A1")
         
-        XCTAssertNil(router.routedResults)
+        XCTAssertNil(router.routedResults) 
     }
     
     func test_startAndAnswerFirstAndSecondQuestion_withTwoQuestions_routesToResult(){
@@ -94,30 +94,36 @@ class FlowTests : XCTestCase {
         router.answerCallback("A1")
         router.answerCallback("A2")
         
-        XCTAssertEqual(router.routedResults, ["01":"A1", "02":"A2"])
+        XCTAssertEqual(router.routedResults?.answers, ["01":"A1", "02":"A2"])
+    }
+    
+    func test_startAndAnswerFirstAndSecondQuestion_withTwoQuestions_scores(){
+        let sut = makeSut(questions: ["01","02"], scoring: { _ in 10})
+        sut.start()
+        router.answerCallback("A1")
+        router.answerCallback("A2")
+        
+        XCTAssertEqual(router.routedResults?.score, 10)
+    }
+    
+    func test_startAndAnswerFirstAndSecondQuestion_withTwoQuestions_scoreswithRightAnswers(){
+        var receivedAnswers = [String:String]()
+        let sut = makeSut(questions: ["01","02"], scoring: { answers in
+            receivedAnswers = answers
+            return 20
+        })
+        sut.start()
+        router.answerCallback("A1")
+        router.answerCallback("A2")
+        
+        XCTAssertEqual(receivedAnswers, ["01":"A1", "02":"A2"])
     }
     
     // MARK: Helpers
-    func makeSut (questions : [String]) -> Flow<String,String, RouterSpy> {
-        return Flow(questions: questions, router: router)
+    func makeSut (questions : [String],
+                  scoring : @escaping ([String : String]) -> Int = {_ in 0 }) -> Flow<String,String, RouterSpy> {
+        return Flow(questions: questions, router: router, scoring: scoring)
     }
     
-    class RouterSpy : Router {
-      
-        
-
-        var routedQuestions : [String] = []
-        var routedResults : [String:String]? = nil
-        var answerCallback: (String) -> Void = { _ in}
-        
-        func routeTo(question: String, answerCallback: @escaping (String) -> Void) {
-            self.routedQuestions.append(question)
-            self.answerCallback = answerCallback
-        }
-        
-        
-        func routeTo(result: [String : String]) {
-            routedResults = result
-        }
-    }
+   
 }

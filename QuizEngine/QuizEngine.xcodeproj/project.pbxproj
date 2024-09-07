@@ -13,6 +13,11 @@
 		7B9839DF2C663BF3009A5B64 /* QuizEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B9839D12C663BF3009A5B64 /* QuizEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B9839EB2C6645D1009A5B64 /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9839E82C663C38009A5B64 /* FlowTests.swift */; };
 		7B9839ED2C66462C009A5B64 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9839EC2C66462C009A5B64 /* Flow.swift */; };
+		7BFC064E2C8C1A70003F5A0F /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFC064D2C8C1A70003F5A0F /* Result.swift */; };
+		7BFC06502C8C1A85003F5A0F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFC064F2C8C1A85003F5A0F /* Router.swift */; };
+		7BFC06522C8C220C003F5A0F /* GameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFC06512C8C220C003F5A0F /* GameTest.swift */; };
+		7BFC06542C8C2279003F5A0F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFC06532C8C2279003F5A0F /* Game.swift */; };
+		7BFC06562C8C2367003F5A0F /* RouterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFC06552C8C2367003F5A0F /* RouterSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +38,11 @@
 		7B9839DD2C663BF3009A5B64 /* QuizEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizEngineTests.swift; sourceTree = "<group>"; };
 		7B9839E82C663C38009A5B64 /* FlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTests.swift; sourceTree = "<group>"; };
 		7B9839EC2C66462C009A5B64 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		7BFC064D2C8C1A70003F5A0F /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		7BFC064F2C8C1A85003F5A0F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		7BFC06512C8C220C003F5A0F /* GameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTest.swift; sourceTree = "<group>"; };
+		7BFC06532C8C2279003F5A0F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		7BFC06552C8C2367003F5A0F /* RouterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,9 @@
 				7B9839EC2C66462C009A5B64 /* Flow.swift */,
 				7B9839D12C663BF3009A5B64 /* QuizEngine.h */,
 				7B9839D22C663BF3009A5B64 /* QuizEngine.docc */,
+				7BFC064D2C8C1A70003F5A0F /* Result.swift */,
+				7BFC064F2C8C1A85003F5A0F /* Router.swift */,
+				7BFC06532C8C2279003F5A0F /* Game.swift */,
 			);
 			path = QuizEngine;
 			sourceTree = "<group>";
@@ -87,6 +100,8 @@
 			children = (
 				7B9839DD2C663BF3009A5B64 /* QuizEngineTests.swift */,
 				7B9839E82C663C38009A5B64 /* FlowTests.swift */,
+				7BFC06512C8C220C003F5A0F /* GameTest.swift */,
+				7BFC06552C8C2367003F5A0F /* RouterSpy.swift */,
 			);
 			path = QuizEngineTests;
 			sourceTree = "<group>";
@@ -200,6 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BFC06502C8C1A85003F5A0F /* Router.swift in Sources */,
+				7BFC06542C8C2279003F5A0F /* Game.swift in Sources */,
+				7BFC064E2C8C1A70003F5A0F /* Result.swift in Sources */,
 				7B9839D32C663BF3009A5B64 /* QuizEngine.docc in Sources */,
 				7B9839ED2C66462C009A5B64 /* Flow.swift in Sources */,
 			);
@@ -211,6 +229,8 @@
 			files = (
 				7B9839DE2C663BF3009A5B64 /* QuizEngineTests.swift in Sources */,
 				7B9839EB2C6645D1009A5B64 /* FlowTests.swift in Sources */,
+				7BFC06522C8C220C003F5A0F /* GameTest.swift in Sources */,
+				7BFC06562C8C2367003F5A0F /* RouterSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
