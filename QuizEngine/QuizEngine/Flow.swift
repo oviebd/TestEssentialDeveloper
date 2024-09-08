@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+ 
 class Flow<Question : Hashable,Answer, R: Router> where R.Question == Question, R.Answer == Answer{
     
     private let router : R
