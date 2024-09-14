@@ -14,6 +14,8 @@
 		7B360E652C868E4000728330 /* WrongAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B360E642C868E4000728330 /* WrongAnswerCell.swift */; };
 		7B48528B2C85396500B87397 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B48528A2C85396500B87397 /* ResultsViewController.swift */; };
 		7B48528D2C853A0F00B87397 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B48528C2C853A0F00B87397 /* ResultsViewController.xib */; };
+		7B4D0AED2C9522270039848E /* QuestionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D0AEC2C9522270039848E /* QuestionTest.swift */; };
+		7B4D0AEF2C95256F0039848E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D0AEE2C95256F0039848E /* Question.swift */; };
 		7B77D5382C7182E500FEAEF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77D5372C7182E500FEAEF6 /* AppDelegate.swift */; };
 		7B77D5412C7182E600FEAEF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B77D5402C7182E600FEAEF6 /* Assets.xcassets */; };
 		7B77D54F2C7182E600FEAEF6 /* QuizAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77D54E2C7182E600FEAEF6 /* QuizAppTests.swift */; };
@@ -70,6 +72,8 @@
 		7B360E642C868E4000728330 /* WrongAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongAnswerCell.swift; sourceTree = "<group>"; };
 		7B48528A2C85396500B87397 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		7B48528C2C853A0F00B87397 /* ResultsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
+		7B4D0AEC2C9522270039848E /* QuestionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTest.swift; sourceTree = "<group>"; };
+		7B4D0AEE2C95256F0039848E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		7B77D5342C7182E500FEAEF6 /* QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B77D5372C7182E500FEAEF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B77D5402C7182E600FEAEF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				7B360E622C868E2100728330 /* CorrectAnswerCell.swift */,
 				7B360E642C868E4000728330 /* WrongAnswerCell.swift */,
 				F39016292C8FD6A800DD3E80 /* NavigationControllerRouter.swift */,
+				7B4D0AEE2C95256F0039848E /* Question.swift */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 				7BF34DE82C8541E7000559FF /* ResultsViewContrllerTest.swift */,
 				7BF34DEA2C854952000559FF /* TableViewHelpers.swift */,
 				F390162B2C8FD79D00DD3E80 /* NavigationControllerRouterTest.swift */,
+				7B4D0AEC2C9522270039848E /* QuestionTest.swift */,
 			);
 			path = QuizAppTests;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 				F390162A2C8FD6A800DD3E80 /* NavigationControllerRouter.swift in Sources */,
 				7B360E5F2C868DB600728330 /* UiTableViewExtention.swift in Sources */,
 				7B77D5382C7182E500FEAEF6 /* AppDelegate.swift in Sources */,
+				7B4D0AEF2C95256F0039848E /* Question.swift in Sources */,
 				7B360E652C868E4000728330 /* WrongAnswerCell.swift in Sources */,
 				7B77D5682C71842F00FEAEF6 /* QuestionViewController.swift in Sources */,
 				7B360E612C868DE500728330 /* PresentableAnswer.swift in Sources */,
@@ -337,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B77D56E2C718A5E00FEAEF6 /* QuestionViewControllerTest.swift in Sources */,
+				7B4D0AED2C9522270039848E /* QuestionTest.swift in Sources */,
 				F390162C2C8FD79D00DD3E80 /* NavigationControllerRouterTest.swift in Sources */,
 				7B77D54F2C7182E600FEAEF6 /* QuizAppTests.swift in Sources */,
 				7BF34DE92C8541E7000559FF /* ResultsViewContrllerTest.swift in Sources */,

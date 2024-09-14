@@ -11,31 +11,22 @@ import QuizEngine
 
 final class NavigationControllerRouterTest: XCTestCase {
 
-    func test_routeToQuestion_presentQuestionVC(){
-        
-        let navigationController = UINavigationController()
-        let factory = ViewControllerStub()
-        let vc = UIViewController()
-        factory.stub(question: "Q1", with: vc)
-        
-        let sut = NavigationControllerRouter(navigationController: navigationController, factory: factory)
-        sut.routeTo(question: "Q1") { _ in
-            
-        }
-        XCTAssertEqual(navigationController.viewControllers.count,1 )
-        XCTAssertEqual(navigationController.viewControllers.first,vc )
-    }
+    let navigationController = FakeNavigationController()
+    let factory = ViewControllerStub()
+    lazy var sut : NavigationControllerRouter = {
+        return NavigationControllerRouter(navigationController: self.navigationController, factory: self.factory)
+    }()
     
-    func test_routeToQuestionTwice_presentQuestionVC(){
+    
+    func test_routeToQuestion_ShowsQuestionVC(){
         
-        let navigationController = UINavigationController()
-        let factory = ViewControllerStub()
+      
         let vc = UIViewController()
         let secondVC = UIViewController()
         
         factory.stub(question: "Q1", with: vc)
         factory.stub(question: "Q2", with: secondVC)
-        let sut = NavigationControllerRouter(navigationController: navigationController, factory: factory)
+      
         
         sut.routeTo(question: "Q1") { _ in}
         sut.routeTo(question: "Q2") { _ in}
@@ -44,17 +35,40 @@ final class NavigationControllerRouterTest: XCTestCase {
         XCTAssertEqual(navigationController.viewControllers.last, secondVC)
     }
     
+    func test_routeToQuestion_presentQuestionVCWithRightCallback(){
+    
+        factory.stub(question: "Q1", with:  UIViewController())
+      
+        let sut = NavigationControllerRouter(navigationController: navigationController, factory: factory)
+        
+        var callbackWasFired = false
+        sut.routeTo(question: "Q1" , answerCallback: { _  in
+            callbackWasFired = true
+        })
+        factory.answerCallback ["Q1"]!("anything")
+        
+        XCTAssertTrue(callbackWasFired)
+       
+    }
+    
+    class FakeNavigationController : UINavigationController {
+        override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+            super.pushViewController(viewController, animated: false)
+        }
+    }
     
     class ViewControllerStub : ViewControllerFactory {
         
         private var stubQuestions = [String:UIViewController]()
+        var answerCallback = [String:(String) -> Void]()
         
         func stub(question: String, with viewContyroller : UIViewController){
             stubQuestions[question] = viewContyroller
         }
         
-        func questionVC(for question: String, answerCallback: (String) -> Void) -> UIViewController {
-            return stubQuestions[question]!
+        func questionVC(for question: String, answerCallback: @escaping (String) -> Void) -> UIViewController {
+            self.answerCallback[question] = answerCallback
+            return stubQuestions[question] ?? UINavigationController()
         }
         
         
