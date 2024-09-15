@@ -14,13 +14,16 @@ import UIKit
 let question = Question.singleAnswer("A question?")
 
 protocol ViewControllerFactory {
-    func questionVC(for question : String, answerCallback : @escaping (String) -> Void) -> UIViewController
+    func questionVC(for question : Question<String>, answerCallback : @escaping (String) -> Void) -> UIViewController
+    
+    func resultVC(for result : Result< Question<String>, String>) -> UIViewController
 }
+
 
 class NavigationControllerRouter : Router {
     
-    typealias Answer = String
-    typealias Question = String
+//    typealias Answer = String
+//    typealias Question = Question<String>
     
     private let navigationController : UINavigationController
     private let factory : ViewControllerFactory
@@ -30,13 +33,17 @@ class NavigationControllerRouter : Router {
         self.factory = factory
     }
     
-    func routeTo(question: String, answerCallback: @escaping (String) -> Void) {
-        let vc = factory.questionVC(for: question, answerCallback: answerCallback)
-        navigationController.pushViewController(vc, animated: true)
+    func routeTo(question: Question<String>, answerCallback: @escaping (String) -> Void) {
+        show(factory.questionVC(for: question, answerCallback: answerCallback))
+    }
+   
+    func routeTo(result: Result<Question<String>, String>) {
+        show(factory.resultVC(for: result))
+       
     }
     
-    func routeTo(result: Result<String, String>) {
-        
+    private func show(_ uiVewController : UIViewController){
+        navigationController.pushViewController(uiVewController, animated: true)
     }
     
 }

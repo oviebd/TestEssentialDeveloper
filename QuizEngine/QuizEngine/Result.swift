@@ -8,6 +8,14 @@
 import Foundation
 
 public struct Result<Question : Hashable, Answer> {
-    let answers : [Question:Answer]
-    let score : Int
+    public var answers : [Question:Answer] //{ get set }
+    public var score : Int //{ get set }
+}
+
+
+public extension Result {
+    init(initAnswers : [ Question: Answer],initScore : Int){
+        answers = initAnswers
+        score = initScore
+    }
 }
