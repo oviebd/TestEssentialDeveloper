@@ -38,8 +38,8 @@ final class NavigationControllerRouterTest: XCTestCase {
         let secondVC = UIViewController()
         
        
-        let result = Result(initAnswers: [Question.singleAnswer("Q1"): "A1"], initScore: 10)
-        let secondResult = Result(initAnswers: [Question.singleAnswer("Q2"): "A2"], initScore: 20)
+        let result = Result(initAnswers: [Question.singleAnswer("Q1"): ["A1"]], initScore: 10)
+        let secondResult = Result(initAnswers: [Question.singleAnswer("Q2"): ["A2"]], initScore: 20)
         
         factory.stub(result: result, with: vc)
         factory.stub(result: secondResult, with: secondVC)
@@ -62,7 +62,7 @@ final class NavigationControllerRouterTest: XCTestCase {
         sut.routeTo(question:  Question.singleAnswer("Q1") , answerCallback: { _  in
             callbackWasFired = true
         })
-        factory.answerCallback [ Question.singleAnswer("Q1")]!("anything")
+        factory.answerCallback [ Question.singleAnswer("Q1")]!(["anything"])
         
         XCTAssertTrue(callbackWasFired)
        
@@ -77,23 +77,23 @@ final class NavigationControllerRouterTest: XCTestCase {
     class ViewControllerStub : ViewControllerFactory {
         
         private var stubQuestions = [Question<String>:UIViewController]()
-        private var stubResult = [Result<Question<String>, String> :UIViewController]()
-        var answerCallback = [Question<String>:(String) -> Void]()
+        private var stubResult = [Result<Question<String>, [String]> :UIViewController]()
+        var answerCallback = [Question<String>:([String]) -> Void]()
         
         func stub(question: Question<String>, with viewContyroller : UIViewController){
             stubQuestions[question] = viewContyroller
         }
         
-        func stub(result: Result<Question<String>, String>, with viewContyroller : UIViewController){
+        func stub(result: Result<Question<String>, [String]>, with viewContyroller : UIViewController){
             stubResult[result] = viewContyroller
         }
         
-        func questionVC(for question: Question<String>, answerCallback: @escaping (String) -> Void) -> UIViewController {
+        func questionVC(for question: Question<String>, answerCallback: @escaping ([String]) -> Void) -> UIViewController {
             self.answerCallback[question] = answerCallback
             return stubQuestions[question] ?? UINavigationController()
         }
         
-        func resultVC(for result: QuizEngine.Result<QuizApp.Question<String>, String>) -> UIViewController {
+        func resultVC(for result: QuizEngine.Result<QuizApp.Question<String>, [String]>) -> UIViewController {
             return stubResult[result] ?? UIViewController()
         }
         

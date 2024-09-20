@@ -84,7 +84,11 @@ class QuestionViewControllerTest : XCTestCase {
                  options: [String] = [],
                  selection: @escaping ([String]) -> Void = {_ in}) -> QuestionViewController{
         
+//        let questionType = Question.singleAnswer(question)
+//        let factory = iOSVCFactory(options: [questionType:options])
+//        let sut = factory.questionVC(for: questionType, answerCallback: selection) as! QuestionViewController
         let sut = QuestionViewController(question: question, options: options, selection: selection)
+
         _ = sut.view
         return sut
     }

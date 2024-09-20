@@ -11,7 +11,7 @@ import QuizEngine
 
 
 protocol ViewControllerFactory {
-    func questionVC(for question : Question<String>, answerCallback : @escaping (String) -> Void) -> UIViewController
+    func questionVC(for question : Question<String>, answerCallback : @escaping ([String]) -> Void) -> UIViewController
     
-    func resultVC(for result : Result< Question<String>, String>) -> UIViewController
+    func resultVC(for result : Result< Question<String>, [String]>) -> UIViewController
 }

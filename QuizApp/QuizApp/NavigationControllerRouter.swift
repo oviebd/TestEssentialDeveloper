@@ -14,8 +14,6 @@ import UIKit
 let question = Question.singleAnswer("A question?")
 
 
-
-
 class NavigationControllerRouter : Router {
     
 //    typealias Answer = String
@@ -29,11 +27,11 @@ class NavigationControllerRouter : Router {
         self.factory = factory
     }
     
-    func routeTo(question: Question<String>, answerCallback: @escaping (String) -> Void) {
+    func routeTo(question: Question<String>, answerCallback: @escaping ([String]) -> Void) {
         show(factory.questionVC(for: question, answerCallback: answerCallback))
     }
    
-    func routeTo(result: Result<Question<String>, String>) {
+    func routeTo(result: Result<Question<String>, [String]>) {
         show(factory.resultVC(for: result))
        
     }

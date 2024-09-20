@@ -17,11 +17,11 @@ class iOSVCFactory : ViewControllerFactory {
         self.options = options
     }
     
-    func questionVC(for question: Question<String>, answerCallback: @escaping (String) -> Void) -> UIViewController {
+    func questionVC(for question: Question<String>, answerCallback: @escaping ([String]) -> Void) -> UIViewController {
         
         switch question {
         case .singleAnswer(let value):
-            return QuestionViewController(question: value, options: options[question]!) { _ in}
+            return QuestionViewController(question: value, options: options[question]!, selection: answerCallback)
             
         default :
             return UIViewController()
@@ -30,7 +30,7 @@ class iOSVCFactory : ViewControllerFactory {
        
     }
     
-    func resultVC(for result: QuizEngine.Result<Question<String>, String>) -> UIViewController {
+    func resultVC(for result: QuizEngine.Result<Question<String>, [String]>) -> UIViewController {
         return UIViewController()
     }
     
