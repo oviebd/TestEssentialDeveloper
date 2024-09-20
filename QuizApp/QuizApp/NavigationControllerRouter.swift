@@ -13,11 +13,7 @@ import UIKit
 
 let question = Question.singleAnswer("A question?")
 
-protocol ViewControllerFactory {
-    func questionVC(for question : Question<String>, answerCallback : @escaping (String) -> Void) -> UIViewController
-    
-    func resultVC(for result : Result< Question<String>, String>) -> UIViewController
-}
+
 
 
 class NavigationControllerRouter : Router {
